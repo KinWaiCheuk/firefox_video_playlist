@@ -1,0 +1,10 @@
+<!doctype html><meta charset="utf-8"><title>Video Playlist</title>
+<style>body{font:14px system-ui;width:380px;padding:14px;color:#182438}textarea{box-sizing:border-box;width:100%;height:165px;margin:8px 0}button{padding:9px 17px;margin:12px 6px 0 0}input[type=number]{width:65px}#status{background:#eef2f8;padding:10px;overflow-wrap:anywhere}small{display:block;margin:10px 0;color:#526075}</style>
+<h2>Video Playlist</h2><label for="urls">One video page URL per line</label>
+<textarea id="urls" placeholder="https://example.com/video-1&#10;https://example.com/video-2"></textarea>
+<label>Ignore videos shorter than <input id="minimum" type="number" value="120" min="0"> seconds</label>
+<small>Helps ignore short ads. Set to 0 for short videos. Ads longer than this may still be mistaken for the main video.</small>
+<label><input id="close" type="checkbox" checked>Close playlist tab when finished</label>
+<div><button id="start">Start playlist</button><button id="stop">Stop</button></div>
+<p id="status">Ready</p><small>If playback does not start, allow audio/video autoplay for the player site or click its Play button. Other tabs are left open.</small>
+<script src="popup.js"></script>
