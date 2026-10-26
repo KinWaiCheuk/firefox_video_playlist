@@ -6,5 +6,12 @@
 <small>Helps ignore short ads. Set to 0 for short videos. Ads longer than this may still be mistaken for the main video.</small>
 <label><input id="close" type="checkbox" checked>Close playlist tab when finished</label>
 <div><button id="start">Start playlist</button><button id="stop">Stop</button></div>
-<p id="status">Ready</p><small>If playback does not start, allow audio/video autoplay for the player site or click its Play button. Other tabs are left open.</small>
+<p id="status" role="status">Ready</p>
+<section id="help" hidden aria-label="Playback needs attention">
+<strong>Playback needs your attention</strong>
+<ol><li>Open the playlist tab and click Firefox's autoplay icon beside the address bar.</li><li>Set Autoplay to <strong>Allow Audio and Video</strong> for this site. Keep your default Block Audio setting.</li><li>Return here and click Retry playback, or click Play directly in the video player.</li></ol>
+<small>If the player is embedded, its domain may need an exception too. Firefox controls this permission; this extension cannot grant it.</small>
+<button id="showTab">Show playlist tab</button><button id="retry">Retry playback</button>
+</section>
+<small>If playback is blocked, a ! badge appears on the extension. Open this popup for instructions. Other tabs are left open.</small>
 <script src="popup.js"></script>

@@ -19,6 +19,21 @@ Firefox or the embedded player may require permission or a click. Allow Audio
 and Video in the site's autoplay permission, including the embedded player
 origin when relevant. If the site requires its own initial Play click, do so.
 The extension then watches for the end. It does not click unknown buttons.
+If playback fails, the extension shows a ! badge. Open its popup for the
+reported player origin, permission instructions, and a Retry playback button.
+An on-page reminder appears automatically when playback fails or the selected
+player is muted. It stays centered over the video and has no playback button.
+A yellow cue at the top-left of the page points upward toward Firefox's
+address-bar autoplay controls. It cannot highlight browser controls directly.
+Both reminders let clicks pass through to the page and disappear when playback
+recovers or the playlist stops.
+A waiting reminder appears after several checks if no playable video
+is found; this does not necessarily mean Firefox blocked autoplay.
+Use Show playlist tab to reach Firefox's site autoplay controls. Set that
+site to Allow Audio and Video; the global Block Audio default can stay on.
+After granting permission, click Retry playback or click Play in the player.
+The extension attempts to unmute each selected video and restores zero volume
+to 100%. It does not repeatedly override the player's mute setting.
 
 LIMITATIONS
 This is an unsigned temporary add-on: reload after restarting Firefox. Mozilla

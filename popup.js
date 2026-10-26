@@ -3,6 +3,7 @@ const $=id=>document.getElementById(id);
 async function refresh(){
   const s=await browser.runtime.sendMessage({type:'status'});
   $('status').textContent=s.status;
+  $('help').hidden=!s.issue;
 }
 (async()=>{
   const saved=await browser.storage.local.get(['urls','minimum','close']);
@@ -28,4 +29,10 @@ $('start').onclick=async()=>{
   }catch(e){$('status').textContent=e.message;}
 };
 $('stop').onclick=async()=>{await browser.runtime.sendMessage({type:'stop'});await refresh();};
+for(const type of ['retry','showTab']) {
+  $(type).onclick=async()=>{
+    try {await browser.runtime.sendMessage({type});await refresh();}
+    catch(e){$('status').textContent=e.message;}
+  };
+}
 setInterval(()=>refresh().catch(()=>{}),1000);
