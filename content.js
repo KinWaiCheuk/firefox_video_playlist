@@ -40,12 +40,12 @@
       const panel=document.createElement('section');
       panel.setAttribute('role','alert');
       const title=document.createElement('h2');
-      title.textContent='Video Playlist needs your help';
+      title.textContent='How to use';
       reminderText=document.createElement('p');
       const instructions=document.createElement('p');
-      instructions.textContent='For automatic playback on future videos: click Firefox’s autoplay button on the left side of the address bar → Autoplay → Allow Audio and Video for this site. Your default Block Audio setting can stay on. Embedded players may need their own site exception.';
+      instructions.textContent='To enable autoplay, follow the instructions in the yellow box hint above.';
       const note=document.createElement('p');
-      note.textContent='After allowing autoplay, click Play in the video player, or use Retry playback in the extension popup. The extension cannot change Firefox’s permission for you.';
+      note.textContent='After allowing autoplay, reload the plugin.';
       panel.append(title,reminderText,instructions,note);
       root.append(style,panel);
       document.documentElement.append(reminder);
@@ -53,7 +53,7 @@
     reminderText.textContent=message;
     if(window===window.top && !addressHint) {
       addressHint=document.createElement('div');
-      addressHint.style.cssText='position:fixed!important;top:0!important;left:12px!important;z-index:2147483647!important;max-width:340px!important;width:calc(100% - 24px)!important;pointer-events:none!important;';
+      addressHint.style.cssText='position:fixed!important;top:0!important;left:clamp(12px,30vw,300px)!important;z-index:2147483647!important;max-width:340px!important;width:min(340px,calc(88vw - 12px))!important;pointer-events:none!important;';
       const root=addressHint.attachShadow({mode:'closed'});
       const style=document.createElement('style');
       style.textContent='aside{display:flex;gap:12px;align-items:center;background:#fff3cd;color:#663c00;border:3px solid #b45309;border-top:0;border-radius:0 0 12px 12px;padding:8px 14px;box-shadow:0 4px 16px #0004;font:15px/1.4 system-ui}span{font-size:48px;line-height:1}strong{display:block}';
